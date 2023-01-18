@@ -14,10 +14,13 @@ export default function Header() {
             <div className="logo">
               <div className="logo-inner">
                 <a href="/">
-                  <img src="../images/resume/logo-dark.png" alt="Sartre Logo" />
+                  <img
+                    src="../images/resume/logo-dark.png"
+                    alt="Tatiana Logo"
+                  />
                 </a>
                 <a href="/">
-                  <img src="../images/resume/logo.png" alt="Sartre Logo" />
+                  <img src="../images/resume/logo.png" alt="Tatiana Logo" />
                 </a>
               </div>
             </div>
