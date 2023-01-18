@@ -17,10 +17,10 @@ export default function Hero() {
         <div className="column width-5 push-7">
           <div className="hero-content split-hero-content">
             <div className="hero-content-inner left">
-              <h1 className="color-white title-large mb-0 ht1">
+              <h1 className={`color-white title-large mb-0 ht1`}>
                 {data?.hero.title}
               </h1>
-              <h2 className="color-white title-medium lspacing-medium ht2">
+              <h2 className={`color-white title-medium lspacing-medium ht2`}>
                 {data?.hero.description}
               </h2>
             </div>
