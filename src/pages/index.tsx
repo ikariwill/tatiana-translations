@@ -1,3 +1,4 @@
+import Head from "next/head";
 import About from "../components/About";
 import Contact from "../components/Contact";
 import Header from "../components/Header";
@@ -8,6 +9,9 @@ import Testimonials from "../components/Testimonials";
 export default function Page() {
   return (
     <>
+      <Head>
+        <title>Tatiana Hernandez | Translations & Revisions</title>
+      </Head>
       <aside
         className="side-navigation-wrapper enter-right"
         data-no-scrollbar
