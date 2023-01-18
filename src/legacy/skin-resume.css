@@ -345,12 +345,12 @@ body,
 
 /* theme */
 .bkg-theme{
-	background-color: #263059;
-	border-color: #263059;
+	background-color: #263059!important;
+	border-color: #263059!important;
 }
 .bkg-hover-theme:hover{
-	background-color: #263059;
-	border-color: #263059;
+	background-color: #263059!important;
+	border-color: #263059!important;
 }
 .border-theme{
 	border-color: #263059;
