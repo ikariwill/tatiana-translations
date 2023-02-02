@@ -1,8 +1,29 @@
 /* eslint-disable @next/next/no-html-link-for-pages */
+import { GetHeaderMenu } from "../graphql/GetHeaderMenu";
+import { useQuery } from "@tanstack/react-query";
+import request from "graphql-request";
 import Link from "next/link";
+
+type Menu = {
+  id: string;
+  title: string;
+  url: string;
+  headerSubmenus: Menu[];
+};
+
+type DataQuery = {
+  headerMenus: Menu[];
+};
 
 /* eslint-disable @next/next/no-img-element */
 export default function Header() {
+  const endpoint = process.env.HYGRAPH_READY_ONLY_ENDPOINT as string;
+
+  const { data } = useQuery<DataQuery>({
+    queryKey: ["headerMenu"],
+    queryFn: async () => request(endpoint, GetHeaderMenu()),
+  });
+
   return (
     <header
       className="header header-fixed header-fixed-on-mobile header-transparent"
@@ -50,29 +71,23 @@ export default function Header() {
             </nav>
             <nav className="navigation nav-block primary-navigation nav-right">
               <ul>
-                <li className="current">
-                  <Link href="#about">About</Link>
-                </li>
-                <li>
-                  <a href="./">Services</a>
-                  <ul className="sub-menu">
-                    <li>
-                      <a href="translation.html">Translation</a>
-                    </li>
-                    <li>
-                      <a href="editing.html"> Proofreading & Editing</a>
-                    </li>
-                    <li>
-                      <a href="mtpe.html">MTPE</a>
-                    </li>
-                    <li>
-                      <a href="pharmacy.html">Pharmaceutical Translation</a>
-                    </li>
-                  </ul>
-                </li>
-                <li className="contains-mega-sub-menu">
-                  <a href="confidentiality.html">Confidentiality</a>
-                </li>
+                {data?.headerMenus.map((menu) => (
+                  <li key={menu.id}>
+                    <Link href={menu.url}>{menu.title}</Link>
+
+                    {(menu.headerSubmenus.length && (
+                      <ul className="sub-menu">
+                        {menu.headerSubmenus.map((subMenu) => (
+                          <li key={subMenu.id}>
+                            <Link href={subMenu.url}>{subMenu.title}</Link>
+                          </li>
+                        ))}
+                      </ul>
+                    )) ||
+                      null}
+                  </li>
+                ))}
+
                 <li>
                   <a
                     style={{
