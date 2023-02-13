@@ -9,7 +9,7 @@ export default function FeaturedMedia({
   return (
     <section
       className="section-block featured-media page-intro small tm-slider-parallax-container"
-      style={{ height: "300px", backgroundImage: "url(images/1.jpg)" }}
+      style={{ height: "300px", backgroundImage: `url(${image})` }}
     >
       <div
         className="tm-slider-container full-width-slider show-on-hover"
