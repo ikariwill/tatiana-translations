@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable @next/next/no-html-link-for-pages */
+import FeaturedMedia from "@components/FeaturedMedia";
 import Header from "@components/Header";
 import Head from "next/head";
 
@@ -11,86 +12,7 @@ export default function Translation() {
       </Head>
       <Header />
       <div className="content clearfix">
-        <section
-          className="section-block featured-media page-intro small tm-slider-parallax-container"
-          style={{ height: "300px" }}
-        >
-          <div
-            className="tm-slider-container full-width-slider show-on-hover"
-            data-parallax=""
-            data-parallax-fade-out=""
-            data-animation="slide"
-            data-scale-under="1140"
-            data-scale-min-height="300"
-            style={{
-              width: "1440px",
-              height: "300px",
-              position: "fixed",
-              transform: "translate3d(0px, 0px, 0px)",
-            }}
-          >
-            <ul className="tms-slides">
-              <li
-                className="tms-slide active tms-forcefit img-loaded"
-                data-image=""
-                data-as-bkg-image=""
-                data-force-fit=""
-                id="tms-slide-1"
-                style={{
-                  transition: "-webkit-transform 1000ms ease 0ms, opacity",
-                  opacity: 1,
-                  backgroundImage:
-                    "url(&quot;images/slider/slide-1-page-intro@2x.jpg&quot;)",
-                  transform:
-                    "translate3d(0px, 0px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale3d(1, 1, 1)",
-                  transformOrigin: "50% 50% 0px",
-                  visibility: "visible",
-                }}
-              >
-                <div className="tms-content">
-                  <div className="tms-content-inner left">
-                    <div className="row">
-                      <div
-                        className="column width-12 tms-perspective"
-                        style={{ opacity: 1.27, transform: "scale3d(1, 1, 1)" }}
-                      >
-                        <h1
-                          className="tms-caption color-white inline no-scale"
-                          data-animate-in="preset:slideInUpShort,duration:1000ms,delay:100ms,"
-                          data-no-scale=""
-                          style={{
-                            transform:
-                              "translate3d(0px, 0px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale3d(1, 1, 1)",
-                            opacity: 1,
-                            transformOrigin: "50% 50% 0px",
-                            visibility: "visible",
-                            fontWeight: 600,
-                          }}
-                        >
-                          Translation
-                        </h1>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <img
-                  data-src="../images/1.jpg"
-                  data-retina=""
-                  src="../images/1.jpg"
-                  alt=""
-                  style={{
-                    opacity: 1,
-                    display: "none",
-                    width: "1440px",
-                    height: "403px",
-                    top: "-51px",
-                    left: "0px",
-                  }}
-                />
-              </li>
-            </ul>
-          </div>
-        </section>
+        <FeaturedMedia title="Translation" image="../images/1.jpg" />
 
         <div className="section-block replicable-content">
           <div className="row flex">
