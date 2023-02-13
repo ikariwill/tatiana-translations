@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-html-link-for-pages */
 /* eslint-disable @next/next/no-img-element */
 export default function Services() {
   return (
@@ -15,7 +16,7 @@ export default function Services() {
               data-hover-bkg-color="#000000"
               data-hover-bkg-opacity="0.6"
             >
-              <a className="overlay-link" href="translation.html">
+              <a className="overlay-link" href="/translation">
                 <img
                   src="../images/1.jpg"
                   alt=""
@@ -43,7 +44,7 @@ export default function Services() {
               data-hover-bkg-color="#000000"
               data-hover-bkg-opacity="0.6"
             >
-              <a className="overlay-link" href="editing.html">
+              <a className="overlay-link" href="/editing">
                 <img
                   src="../images/2.jpg"
                   alt=""
@@ -71,7 +72,7 @@ export default function Services() {
               data-hover-bkg-color="#000000"
               data-hover-bkg-opacity="0.6"
             >
-              <a className="overlay-link" href="mtpe.html">
+              <a className="overlay-link" href="/mtpe">
                 <img
                   src="../images/3.jpg"
                   alt=""
@@ -99,7 +100,7 @@ export default function Services() {
               data-hover-bkg-color="#000000"
               data-hover-bkg-opacity="0.6"
             >
-              <a className="overlay-link" href="pharmacy.html">
+              <a className="overlay-link" href="/pharmacy">
                 <img
                   src="../images/4.jpg"
                   alt=""
