@@ -1,3 +1,5 @@
+/* eslint-disable @next/next/no-html-link-for-pages */
+
 import FeaturedMedia from "@components/FeaturedMedia";
 import Header from "@components/Header";
 import Head from "next/head";

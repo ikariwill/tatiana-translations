@@ -1,3 +1,5 @@
+/* eslint-disable @next/next/no-html-link-for-pages */
+
 export default function Footer() {
   return (
     <footer className="footer">
