@@ -1,5 +1,6 @@
 import FeaturedMedia from "@components/FeaturedMedia";
 import Header from "@components/Header";
+import Translations from "@components/Translations";
 import Head from "next/head";
 
 export default function Mtpe() {
@@ -11,6 +12,7 @@ export default function Mtpe() {
       <Header />
       <div className="content clearfix">
         <FeaturedMedia title="MTPE" image="../images/3.jpg" />
+        <Translations />
       </div>
 
       <section className="section-block bkg-grey-ultralight">

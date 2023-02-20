@@ -1,5 +1,6 @@
 import FeaturedMedia from "@components/FeaturedMedia";
 import Header from "@components/Header";
+import Translations from "@components/Translations";
 import Head from "next/head";
 
 export default function Pharmacy() {
@@ -14,6 +15,8 @@ export default function Pharmacy() {
           title="Pharmaceutical translation"
           image="../images/4.jpg"
         />
+
+        <Translations />
       </div>
 
       <section className="section-block bkg-grey-ultralight">
