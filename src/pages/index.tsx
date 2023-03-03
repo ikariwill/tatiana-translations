@@ -10,7 +10,7 @@ import { LocaleProvider } from "@context/LocaleProvider";
 
 export default function Page() {
   return (
-    <LocaleProvider>
+    <>
       <Head>
         <title>Tatiana Hernandez | Translations & Revisions</title>
       </Head>
@@ -46,6 +46,6 @@ export default function Page() {
           </div>
         </div>
       </div>
-    </LocaleProvider>
+    </>
   );
 }
