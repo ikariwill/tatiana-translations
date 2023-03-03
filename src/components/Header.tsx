@@ -1,6 +1,8 @@
 import request from "graphql-request";
 import Link from "next/link";
+import { useContext } from "react";
 
+import { LocaleContext } from "@context/LocaleProvider";
 /* eslint-disable @next/next/no-html-link-for-pages */
 import { GetHeaderMenu } from "@graphql/GetHeaderMenu";
 import { useQuery } from "@tanstack/react-query";
@@ -21,10 +23,12 @@ type DataQuery = {
 /* eslint-disable @next/next/no-img-element */
 export default function Header() {
   const endpoint = process.env.HYGRAPH_READY_ONLY_ENDPOINT as string;
+  const { locale } = useContext(LocaleContext);
 
   const { data } = useQuery<DataQuery>({
-    queryKey: ["headerMenu"],
-    queryFn: async () => request(endpoint, GetHeaderMenu()),
+    queryKey: ["headerMenu", locale],
+    queryFn: async () =>
+      request(endpoint, GetHeaderMenu(), { translate: locale }),
   });
 
   return (

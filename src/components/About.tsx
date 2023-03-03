@@ -18,8 +18,9 @@ export default function About() {
   });
 
   const { data: heroData } = useQuery({
-    queryKey: ["hero"],
-    queryFn: async () => request(endpoint, GetHeroContent()),
+    queryKey: ["hero", locale],
+    queryFn: async () =>
+      request(endpoint, GetHeroContent(), { translate: locale }),
   });
 
   return (

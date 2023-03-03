@@ -30,7 +30,8 @@
       "@lib/*": ["lib/*"],
       "@hooks/*": ["hooks/*"],
       "@context/*": ["context/*"],
-      "@graphql/*": ["graphql/*"]
+      "@graphql/*": ["graphql/*"],
+      "@model/types/*": ["types/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

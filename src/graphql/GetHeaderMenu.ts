@@ -2,8 +2,8 @@ import { gql } from "graphql-request";
 
 export function GetHeaderMenu() {
   return gql`
-    query {
-      headerMenus {
+    query getHeaderMenu($translate: String!) {
+      headerMenus(where: { translate: $translate }) {
         id
         title
         url

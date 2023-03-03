@@ -1,16 +1,20 @@
 import { request } from "graphql-request";
+import { useContext } from "react";
 
+import { LocaleContext } from "@context/LocaleProvider";
+import { GetHeroContent } from "@graphql/GetHeroContent";
+import { IHero } from "@model/types/IHero";
 import { useQuery } from "@tanstack/react-query";
-
-import { GetHeroContent } from "../graphql/GetHeroContent";
-import { IHero } from "../types/IHero";
 
 export default function Hero() {
   const endpoint = process.env.HYGRAPH_READY_ONLY_ENDPOINT as string;
+  const { locale } = useContext(LocaleContext);
 
   const { data } = useQuery<{ hero: IHero }>({
-    queryKey: ["hero"],
-    queryFn: async () => request(endpoint, GetHeroContent()),
+    queryKey: ["hero", locale],
+    queryFn: async () =>
+      request(endpoint, GetHeroContent(), { translate: locale }),
+    enabled: !!locale,
   });
 
   return (
