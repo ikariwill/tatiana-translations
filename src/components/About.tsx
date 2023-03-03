@@ -1,16 +1,20 @@
-import { useQuery } from "@tanstack/react-query";
 import request from "graphql-request";
+import { useContext } from "react";
 
-import { GetAboutContent } from "../graphql/GetAboutContent";
-import { GetHeroContent } from "../graphql/GetHeroContent";
+import { LocaleContext } from "@context/LocaleProvider";
+import { GetAboutContent } from "@graphql/GetAboutContent";
+import { GetHeroContent } from "@graphql/GetHeroContent";
+import { useQuery } from "@tanstack/react-query";
 
 /* eslint-disable @next/next/no-img-element */
 export default function About() {
   const endpoint = process.env.HYGRAPH_READY_ONLY_ENDPOINT as string;
+  const { locale } = useContext(LocaleContext);
 
   const { data } = useQuery({
-    queryKey: ["about"],
-    queryFn: async () => request(endpoint, GetAboutContent()),
+    queryKey: ["about", locale],
+    queryFn: async () =>
+      request(endpoint, GetAboutContent(), { translate: locale }),
   });
 
   const { data: heroData } = useQuery({
@@ -22,7 +26,10 @@ export default function About() {
     <section id="about" className="section-block replicable-content">
       <div className="row">
         <div className="column width-6 right left-on-mobile">
-          <h2 className="mb-50">{data?.about.title}</h2>
+          <h2
+            className="mb-50"
+            dangerouslySetInnerHTML={{ __html: data?.about.title.html }}
+          ></h2>
           <div className="thumbnail no-margin-bottom">
             <img src="../images/signature.svg" alt="" />
           </div>

@@ -1,11 +1,14 @@
 import { request } from "graphql-request";
+
 import { useQuery } from "@tanstack/react-query";
+
 import { GetHeroContent } from "../graphql/GetHeroContent";
+import { IHero } from "../types/IHero";
 
 export default function Hero() {
   const endpoint = process.env.HYGRAPH_READY_ONLY_ENDPOINT as string;
 
-  const { data } = useQuery({
+  const { data } = useQuery<{ hero: IHero }>({
     queryKey: ["hero"],
     queryFn: async () => request(endpoint, GetHeroContent()),
   });

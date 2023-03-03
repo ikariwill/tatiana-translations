@@ -1,8 +1,11 @@
-/* eslint-disable @next/next/no-html-link-for-pages */
-import { GetHeaderMenu } from "../graphql/GetHeaderMenu";
-import { useQuery } from "@tanstack/react-query";
 import request from "graphql-request";
 import Link from "next/link";
+
+/* eslint-disable @next/next/no-html-link-for-pages */
+import { GetHeaderMenu } from "@graphql/GetHeaderMenu";
+import { useQuery } from "@tanstack/react-query";
+
+import { Languages } from "./Languages";
 
 type Menu = {
   id: string;
@@ -89,76 +92,7 @@ export default function Header() {
                 ))}
 
                 <li>
-                  <a
-                    style={{
-                      width: "30px",
-                      display: "inline-block",
-                      marginRight: "-16px",
-                    }}
-                    href="#"
-                  >
-                    <img
-                      alt="portuguese"
-                      style={{ width: "30px", display: "inline-block" }}
-                      src="../images/pt.png"
-                    />
-                  </a>
-                  <a
-                    style={{
-                      width: "30px",
-                      display: "inline-block",
-                      marginRight: "-16px",
-                    }}
-                    href="#"
-                  >
-                    <img
-                      alt="english"
-                      style={{ width: "30px", display: "inline-block" }}
-                      src="../images/en.png"
-                    />
-                  </a>
-                  <a
-                    style={{
-                      width: "30px",
-                      display: "inline-block",
-                      marginRight: "-16px",
-                    }}
-                    href="#"
-                  >
-                    <img
-                      alt="spanish"
-                      style={{ width: "30px", display: "inline-block" }}
-                      src="../images/es.png"
-                    />
-                  </a>
-                  <a
-                    style={{
-                      width: "30px",
-                      display: "inline-block",
-                      marginRight: "-16px",
-                    }}
-                    href="#"
-                  >
-                    <img
-                      alt="french"
-                      style={{ width: "30px", display: "inline-block" }}
-                      src="../images/fr.png"
-                    />
-                  </a>
-                  <a
-                    style={{
-                      width: "30px",
-                      display: "inline-block",
-                      marginRight: "-16px",
-                    }}
-                    href="#"
-                  >
-                    <img
-                      alt="german"
-                      style={{ width: "30px", display: "inline-block" }}
-                      src="../images/de.png"
-                    />
-                  </a>
+                  <Languages />
                 </li>
               </ul>
             </nav>
