@@ -1,19 +1,20 @@
-import { useQuery } from "@tanstack/react-query";
-import request from "graphql-request";
-import { GetAllTestimonials } from "../graphql/GetAllTestimonials";
-import { Pagination } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react";
-
 import "swiper/css/pagination";
 // Import Swiper styles
 import "swiper/css";
 
+import { Pagination } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
+
+import { useQuery } from "@tanstack/react-query";
+
+import { useTestimonials } from "../graphql/useTestimonials";
+
 export default function Testimonials() {
-  const endpoint = process.env.HYGRAPH_READY_ONLY_ENDPOINT as string;
+  const testimonials = useTestimonials();
 
   const { data } = useQuery({
     queryKey: ["testimonials"],
-    queryFn: async () => request(endpoint, GetAllTestimonials()),
+    queryFn: () => testimonials,
   });
 
   return (

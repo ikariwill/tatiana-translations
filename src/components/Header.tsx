@@ -1,34 +1,21 @@
-import request from "graphql-request";
 import Link from "next/link";
 import { useContext } from "react";
 
 import { LocaleContext } from "@context/LocaleProvider";
 /* eslint-disable @next/next/no-html-link-for-pages */
-import { GetHeaderMenu } from "@graphql/GetHeaderMenu";
+import { useHeaderMenu } from "@graphql/useHeaderMenu";
 import { useQuery } from "@tanstack/react-query";
 
 import { Languages } from "./Languages";
 
-type Menu = {
-  id: string;
-  title: string;
-  url: string;
-  headerSubmenus: Menu[];
-};
-
-type DataQuery = {
-  headerMenus: Menu[];
-};
-
 /* eslint-disable @next/next/no-img-element */
 export default function Header() {
-  const endpoint = process.env.HYGRAPH_READY_ONLY_ENDPOINT as string;
   const { locale } = useContext(LocaleContext);
+  const headerMenu = useHeaderMenu();
 
-  const { data } = useQuery<DataQuery>({
+  const { data } = useQuery({
     queryKey: ["headerMenu", locale],
-    queryFn: async () =>
-      request(endpoint, GetHeaderMenu(), { translate: locale }),
+    queryFn: () => headerMenu,
   });
 
   return (

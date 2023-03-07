@@ -1,26 +1,24 @@
-import request from "graphql-request";
 import { useContext } from "react";
 
 import { LocaleContext } from "@context/LocaleProvider";
-import { GetAboutContent } from "@graphql/GetAboutContent";
-import { GetHeroContent } from "@graphql/GetHeroContent";
+import { useAbout } from "@graphql/useAbout";
+import { useHero } from "@graphql/useHero";
 import { useQuery } from "@tanstack/react-query";
 
 /* eslint-disable @next/next/no-img-element */
 export default function About() {
-  const endpoint = process.env.HYGRAPH_READY_ONLY_ENDPOINT as string;
   const { locale } = useContext(LocaleContext);
+  const about = useAbout();
+  const hero = useHero();
 
   const { data } = useQuery({
     queryKey: ["about", locale],
-    queryFn: async () =>
-      request(endpoint, GetAboutContent(), { translate: locale }),
+    queryFn: () => about,
   });
 
   const { data: heroData } = useQuery({
     queryKey: ["hero", locale],
-    queryFn: async () =>
-      request(endpoint, GetHeroContent(), { translate: locale }),
+    queryFn: () => hero,
   });
 
   return (
@@ -29,7 +27,7 @@ export default function About() {
         <div className="column width-6 right left-on-mobile">
           <h2
             className="mb-50"
-            dangerouslySetInnerHTML={{ __html: data?.about.title.html }}
+            dangerouslySetInnerHTML={{ __html: String(data?.about.title.html) }}
           ></h2>
           <div className="thumbnail no-margin-bottom">
             <img src="../images/signature.svg" alt="" />
@@ -54,7 +52,9 @@ export default function About() {
         <div className="column width-5 offset-1">
           <div
             className="aboutContent"
-            dangerouslySetInnerHTML={{ __html: data?.about.content.html }}
+            dangerouslySetInnerHTML={{
+              __html: String(data?.about.content.html),
+            }}
           ></div>
         </div>
       </div>
