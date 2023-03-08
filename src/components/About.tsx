@@ -3,23 +3,21 @@ import { useContext } from "react";
 import { LocaleContext } from "@context/LocaleProvider";
 import { useAbout } from "@graphql/useAbout";
 import { useHero } from "@graphql/useHero";
-import { useQuery } from "@tanstack/react-query";
+import { IHero } from "@model/types/IHero";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 
 /* eslint-disable @next/next/no-img-element */
 export default function About() {
   const { locale } = useContext(LocaleContext);
+  const queryClient = useQueryClient();
   const about = useAbout();
-  const hero = useHero();
 
   const { data } = useQuery({
     queryKey: ["about", locale],
     queryFn: () => about,
   });
 
-  const { data: heroData } = useQuery({
-    queryKey: ["hero", locale],
-    queryFn: () => hero,
-  });
+  const heroData = queryClient.getQueryData<{ hero: IHero }>(["hero", locale]);
 
   return (
     <section id="about" className="section-block replicable-content">
