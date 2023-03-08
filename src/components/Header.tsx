@@ -28,15 +28,15 @@ export default function Header() {
           <div className="column width-12 nav-bar-inner">
             <div className="logo">
               <div className="logo-inner">
-                <a href="/">
+                <Link href="/">
                   <img
                     src="../images/resume/logo-dark.png"
                     alt="Tatiana Logo"
                   />
-                </a>
-                <a href="/">
+                </Link>
+                <Link href="/">
                   <img src="../images/resume/logo.png" alt="Tatiana Logo" />
-                </a>
+                </Link>
               </div>
             </div>
             <nav className="navigation nav-block secondary-navigation nav-right">
