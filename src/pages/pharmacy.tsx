@@ -27,7 +27,7 @@ export default function Pharmacy() {
       <Header />
       <div className="content clearfix">
         <FeaturedMedia
-          title="Pharmaceutical translation"
+          title={data?.pharmacy.title as string}
           image="../images/4.jpg"
         />
 
