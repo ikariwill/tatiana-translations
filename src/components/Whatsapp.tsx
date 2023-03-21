@@ -1,6 +1,11 @@
 import Image from "next/image";
+import { useContext } from "react";
+
+import { CommonContext } from "@context/CommonProvider";
 
 export function Whatsapp() {
+  const { common } = useContext(CommonContext);
+
   return (
     <div className="whatsapp">
       <a
@@ -8,7 +13,7 @@ export function Whatsapp() {
         target="_blank"
         rel="noreferrer"
       >
-        Entrar em contato
+        {common?.contactMe}
         <Image
           alt="Whatsapp logo"
           width={20}
