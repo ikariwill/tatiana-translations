@@ -1,13 +1,12 @@
 import { createContext, useContext } from "react";
 
-import { useCommon } from "@graphql/useCommon";
-import { ICommon } from "@model/types/ICommon";
+import { ICommonData, useCommon } from "@graphql/useCommon";
 import { useQuery } from "@tanstack/react-query";
 
 import { LocaleContext } from "./LocaleProvider";
 
 type ICommonContext = {
-  common?: ICommon;
+  data?: ICommonData;
 };
 
 export const CommonContext = createContext({} as ICommonContext);
@@ -23,8 +22,6 @@ export function CommonProvider({ children }: { children: React.ReactNode }) {
   });
 
   return (
-    <CommonContext.Provider value={{ common: data?.common }}>
-      {children}
-    </CommonContext.Provider>
+    <CommonContext.Provider value={{ data }}>{children}</CommonContext.Provider>
   );
 }

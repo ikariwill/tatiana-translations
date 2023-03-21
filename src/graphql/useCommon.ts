@@ -2,11 +2,15 @@ import request, { gql } from "graphql-request";
 import { useContext } from "react";
 
 import { LocaleContext } from "@context/LocaleProvider";
+import { IArea } from "@model/types/IArea";
 import { ICommon } from "@model/types/ICommon";
+import { IHeaderMenu } from "@model/types/IHeaderMenu";
 import { hygraph_endpoint } from "@services/hygraph";
 
-type ICommonData = {
+export type ICommonData = {
   common: ICommon;
+  area: IArea;
+  headerMenus: IHeaderMenu[];
 };
 
 export function useCommon(): Promise<ICommonData> {
@@ -23,6 +27,22 @@ export function useCommon(): Promise<ICommonData> {
           message
           send
           contactMe
+        }
+        area(where: { translate: $translate }) {
+          title
+          content {
+            html
+          }
+        }
+        headerMenus(where: { translate: $translate }) {
+          id
+          title
+          url
+          headerSubmenus {
+            id
+            title
+            url
+          }
         }
       }
     `,

@@ -10,7 +10,7 @@ import { useQuery, useQueryClient } from "@tanstack/react-query";
 /* eslint-disable @next/next/no-img-element */
 export default function About() {
   const { locale } = useContext(LocaleContext);
-  const { common } = useContext(CommonContext);
+  const { data: commonData } = useContext(CommonContext);
 
   const queryClient = useQueryClient();
   const about = useAbout();
@@ -28,7 +28,9 @@ export default function About() {
         <div className="column width-6 right left-on-mobile">
           <h2
             className="mb-50"
-            dangerouslySetInnerHTML={{ __html: String(data?.about.title.html) }}
+            dangerouslySetInnerHTML={{
+              __html: data?.about.title.html as string,
+            }}
           ></h2>
           <div className="thumbnail no-margin-bottom">
             <img src="../images/signature.svg" alt="" />
@@ -45,7 +47,7 @@ export default function About() {
               href="#contact-lightbox"
               className="lightbox-link button text-uppercase bkg-theme color-white border-hover-grey-light color-hover-grey no-margin-bottom rounded"
             >
-              {common?.contact}
+              {commonData?.common.contact}
             </a>
           </p>
         </div>
@@ -54,7 +56,7 @@ export default function About() {
           <div
             className="aboutContent"
             dangerouslySetInnerHTML={{
-              __html: String(data?.about.content.html),
+              __html: data?.about.content.html as string,
             }}
           ></div>
         </div>

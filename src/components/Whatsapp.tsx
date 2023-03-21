@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { CommonContext } from "@context/CommonProvider";
 
 export function Whatsapp() {
-  const { common } = useContext(CommonContext);
+  const { data } = useContext(CommonContext);
 
   return (
     <div className="whatsapp">
@@ -13,7 +13,7 @@ export function Whatsapp() {
         target="_blank"
         rel="noreferrer"
       >
-        {common?.contactMe}
+        {data?.common.contactMe}
         <Image
           alt="Whatsapp logo"
           width={20}

@@ -43,13 +43,13 @@ export default function Translation() {
               <div
                 className="column width-6"
                 dangerouslySetInnerHTML={{
-                  __html: String(data?.translation.columnOne.html),
+                  __html: data?.translation.columnOne.html as string,
                 }}
               ></div>
               <div
                 className="column width-6"
                 dangerouslySetInnerHTML={{
-                  __html: String(data?.translation.columnTwo.html),
+                  __html: data?.translation.columnTwo.html as string,
                 }}
               ></div>
             </>
@@ -59,7 +59,7 @@ export default function Translation() {
             <div
               className="column width-12"
               dangerouslySetInnerHTML={{
-                __html: String(data?.translation.columnOne.html),
+                __html: data?.translation.columnOne.html as string,
               }}
             ></div>
           )}

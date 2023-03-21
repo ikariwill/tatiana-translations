@@ -1,22 +1,15 @@
 import Link from "next/link";
 import { useContext } from "react";
 
+import { CommonContext } from "@context/CommonProvider";
 import { LocaleContext } from "@context/LocaleProvider";
-/* eslint-disable @next/next/no-html-link-for-pages */
-import { useHeaderMenu } from "@graphql/useHeaderMenu";
-import { useQuery } from "@tanstack/react-query";
 
+/* eslint-disable @next/next/no-html-link-for-pages */
 import { Languages } from "./Languages";
 
 /* eslint-disable @next/next/no-img-element */
 export default function Header() {
-  const { locale } = useContext(LocaleContext);
-  const headerMenu = useHeaderMenu();
-
-  const { data } = useQuery({
-    queryKey: ["headerMenu", locale],
-    queryFn: () => headerMenu,
-  });
+  const { data } = useContext(CommonContext);
 
   return (
     <header
