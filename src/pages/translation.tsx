@@ -1,11 +1,26 @@
 /* eslint-disable @next/next/no-img-element */
+import Head from "next/head";
+import { useContext } from "react";
+
 /* eslint-disable @next/next/no-html-link-for-pages */
 import FeaturedMedia from "@components/FeaturedMedia";
 import Header from "@components/Header";
 import Translations from "@components/Translations";
-import Head from "next/head";
+import { LocaleContext } from "@context/LocaleProvider";
+import { useTranslation } from "@graphql/useTranslation";
+import { ITranslation } from "@model/types/ITranslation";
+import { useQuery } from "@tanstack/react-query";
 
 export default function Translation() {
+  const { locale } = useContext(LocaleContext);
+  const translation = useTranslation();
+
+  const { data } = useQuery<{ translation: ITranslation }>({
+    queryKey: ["translation", locale],
+    queryFn: () => translation,
+    enabled: !!locale,
+  });
+
   return (
     <>
       <Head>
@@ -20,36 +35,34 @@ export default function Translation() {
       <section className="section-block bkg-grey-ultralight">
         <div className="row">
           <div className="column width-12 center">
-            <h2 className="mb-80 sc-t">Translation</h2>
+            <h2 className="mb-80 sc-t">{data?.translation.title}</h2>
           </div>
-          <div className="column width-6">
-            <p>
-              A good translation is the one, that reads naturally. Through a
-              special selection of words and expressions, I will provide your
-              audience a comfortable reading experience.
-            </p>
-            <p>
-              For this, it is essential that I know my audience in depth. Thanks
-              to my many years’ experience as a translator, I can understand
-              different target groups and adapt the texts to the respective
-              audience.
-            </p>
-          </div>
-          <div className="column width-6">
-            <p>
-              During my studies I got to know two especially important
-              perspectives: on the one hand, that of the highly specialized
-              professionals such as doctors and researchers, and on the other
-              hand, that of people without medical expertise such as adult and
-              pediatric patients.
-            </p>
-            <p>
-              If you want an efficient and uncomplicated communication with your
-              target group, please contact me. Through my extensive experience,
-              I will make sure that your audience understands your document and
-              identifies with it.
-            </p>
-          </div>
+
+          {data?.translation.columnTwo && (
+            <>
+              <div
+                className="column width-6"
+                dangerouslySetInnerHTML={{
+                  __html: String(data?.translation.columnOne.html),
+                }}
+              ></div>
+              <div
+                className="column width-6"
+                dangerouslySetInnerHTML={{
+                  __html: String(data?.translation.columnTwo.html),
+                }}
+              ></div>
+            </>
+          )}
+
+          {!data?.translation.columnTwo && (
+            <div
+              className="column width-12"
+              dangerouslySetInnerHTML={{
+                __html: String(data?.translation.columnOne.html),
+              }}
+            ></div>
+          )}
         </div>
       </section>
     </>

@@ -2,25 +2,26 @@ import request, { gql } from "graphql-request";
 import { useContext } from "react";
 
 import { LocaleContext } from "@context/LocaleProvider";
-import { IAbout } from "@model/types/IAbout";
+import { ITranslation } from "@model/types/ITranslation";
 import { hygraph_endpoint } from "@services/hygraph";
 
-type IAboutData = {
-  about: IAbout;
+type ITranslationData = {
+  translation: ITranslation;
 };
 
-export function useAbout(): Promise<IAboutData> {
+export function useTranslation(): Promise<ITranslationData> {
   const { locale } = useContext(LocaleContext);
 
   return request(
     hygraph_endpoint,
     gql`
-      query getAboutContent($translate: String!) {
-        about(where: { translate: $translate }) {
-          title {
+      query getTranslationContent($translate: String!) {
+        translation(where: { translate: $translate }) {
+          title
+          columnOne {
             html
           }
-          content {
+          columnTwo {
             html
           }
         }
