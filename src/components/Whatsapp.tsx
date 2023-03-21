@@ -9,7 +9,7 @@ export function Whatsapp() {
   return (
     <div className="whatsapp">
       <a
-        href={"https://api.whatsapp.com/send?phone=5511981065807"}
+        href={"https://api.whatsapp.com/send?phone=491637827586"}
         target="_blank"
         rel="noreferrer"
       >
