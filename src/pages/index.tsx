@@ -42,8 +42,6 @@ export default function Page() {
             <About />
             <Services />
             <Testimonials />
-            <Contact />
-            <Whatsapp />
           </div>
         </div>
       </div>

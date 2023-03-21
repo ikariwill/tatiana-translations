@@ -3,6 +3,8 @@ import "./global.css";
 import Script from "next/script";
 import { useState } from "react";
 
+import Contact from "@components/Contact";
+import { Whatsapp } from "@components/Whatsapp";
 import { CommonProvider } from "@context/CommonProvider";
 import { LocaleProvider } from "@context/LocaleProvider";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -17,6 +19,8 @@ export default function App({ Component, pageProps }: AppProps) {
       <LocaleProvider>
         <CommonProvider>
           <Component {...pageProps} />
+          <Contact />
+          <Whatsapp />
         </CommonProvider>
       </LocaleProvider>
 

@@ -2,10 +2,12 @@
 import Head from "next/head";
 import { useContext } from "react";
 
+import Contact from "@components/Contact";
 /* eslint-disable @next/next/no-html-link-for-pages */
 import FeaturedMedia from "@components/FeaturedMedia";
 import Header from "@components/Header";
 import Translations from "@components/Translations";
+import { Whatsapp } from "@components/Whatsapp";
 import { LocaleContext } from "@context/LocaleProvider";
 import { useTranslation } from "@graphql/useTranslation";
 import { IColumnTemplate } from "@model/types/IColumnTemplate";
