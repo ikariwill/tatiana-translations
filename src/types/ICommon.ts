@@ -10,4 +10,6 @@ export type ICommon = {
   translation: string;
   testimonialTitle: string;
   translationServices: string;
+  pharmaceuticalTranslation: string;
+  review: string;
 };

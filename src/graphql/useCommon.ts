@@ -34,6 +34,8 @@ export function useCommon(): Promise<ICommonData> {
           translation
           testimonialTitle
           translationServices
+          pharmaceuticalTranslation
+          review
         }
         area(where: { translate: $translate }) {
           title

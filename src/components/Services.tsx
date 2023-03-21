@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-html-link-for-pages */
 
+import Link from "next/link";
 import { useContext } from "react";
 
 import { CommonContext } from "@context/CommonProvider";
@@ -23,7 +24,7 @@ export default function Services() {
               data-hover-bkg-color="#000000"
               data-hover-bkg-opacity="0.6"
             >
-              <a className="overlay-link" href="/translation">
+              <Link className="overlay-link" href="/translation">
                 <img
                   src="../images/1.jpg"
                   alt=""
@@ -37,10 +38,10 @@ export default function Services() {
                   }}
                 >
                   <span>
-                    <span>TRANSLATION</span>
+                    <span>{data?.common.translation}</span>
                   </span>
                 </span>
-              </a>
+              </Link>
             </div>
           </div>
           <div className="grid-item">
@@ -51,7 +52,7 @@ export default function Services() {
               data-hover-bkg-color="#000000"
               data-hover-bkg-opacity="0.6"
             >
-              <a className="overlay-link" href="/editing">
+              <Link className="overlay-link" href="/editing">
                 <img
                   src="../images/2.jpg"
                   alt=""
@@ -65,10 +66,10 @@ export default function Services() {
                   }}
                 >
                   <span>
-                    <span>REVIEW</span>
+                    <span>{data?.common.review}</span>
                   </span>
                 </span>
-              </a>
+              </Link>
             </div>
           </div>
           <div className="grid-item">
@@ -79,7 +80,7 @@ export default function Services() {
               data-hover-bkg-color="#000000"
               data-hover-bkg-opacity="0.6"
             >
-              <a className="overlay-link" href="/mtpe">
+              <Link className="overlay-link" href="/mtpe">
                 <img
                   src="../images/3.jpg"
                   alt=""
@@ -96,7 +97,7 @@ export default function Services() {
                     <span>MTPE</span>
                   </span>
                 </span>
-              </a>
+              </Link>
             </div>
           </div>
           <div className="grid-item">
@@ -107,7 +108,7 @@ export default function Services() {
               data-hover-bkg-color="#000000"
               data-hover-bkg-opacity="0.6"
             >
-              <a className="overlay-link" href="/pharmacy">
+              <Link className="overlay-link" href="/pharmacy">
                 <img
                   src="../images/4.jpg"
                   alt=""
@@ -121,10 +122,10 @@ export default function Services() {
                   }}
                 >
                   <span>
-                    <span>PHARMACEUTICAL TRANSLATION</span>
+                    <span>{data?.common.pharmaceuticalTranslation}</span>
                   </span>
                 </span>
-              </a>
+              </Link>
             </div>
           </div>
         </div>
