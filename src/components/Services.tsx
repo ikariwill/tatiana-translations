@@ -1,11 +1,18 @@
 /* eslint-disable @next/next/no-html-link-for-pages */
+
+import { useContext } from "react";
+
+import { CommonContext } from "@context/CommonProvider";
+
 /* eslint-disable @next/next/no-img-element */
 export default function Services() {
+  const { data } = useContext(CommonContext);
+
   return (
     <section id="services" className="section-block bkg-grey-ultralight">
       <div className="row">
         <div className="column width-12 center">
-          <h2 className="mb-80 sc-t">TRANSLATION SERVICES</h2>
+          <h2 className="mb-80 sc-t">{data?.common.translationServices}</h2>
         </div>
         <div className="row content-grid-4">
           <div className="grid-item">

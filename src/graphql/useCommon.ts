@@ -33,6 +33,7 @@ export function useCommon(): Promise<ICommonData> {
           document
           translation
           testimonialTitle
+          translationServices
         }
         area(where: { translate: $translate }) {
           title

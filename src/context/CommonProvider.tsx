@@ -19,6 +19,7 @@ export function CommonProvider({ children }: { children: React.ReactNode }) {
   const { data } = useQuery({
     queryKey: ["common", locale],
     queryFn: () => commonQuery,
+    enabled: !!locale,
   });
 
   return (

@@ -7,17 +7,20 @@ import { Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import { CommonContext } from "@context/CommonProvider";
+import { LocaleContext } from "@context/LocaleProvider";
 import { useQuery } from "@tanstack/react-query";
 
 import { useTestimonials } from "../graphql/useTestimonials";
 
 export default function Testimonials() {
   const { data: commonData } = useContext(CommonContext);
+  const { locale } = useContext(LocaleContext);
   const testimonials = useTestimonials();
 
   const { data } = useQuery({
     queryKey: ["testimonials"],
     queryFn: () => testimonials,
+    enabled: !!locale,
   });
 
   return (

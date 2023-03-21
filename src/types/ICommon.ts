@@ -9,4 +9,5 @@ export type ICommon = {
   document: string;
   translation: string;
   testimonialTitle: string;
+  translationServices: string;
 };

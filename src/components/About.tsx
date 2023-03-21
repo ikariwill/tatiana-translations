@@ -18,6 +18,7 @@ export default function About() {
   const { data } = useQuery({
     queryKey: ["about", locale],
     queryFn: () => about,
+    enabled: !!locale,
   });
 
   const heroData = queryClient.getQueryData<{ hero: IHero }>(["hero", locale]);
