@@ -1,1 +1,32 @@
 @import '../legacy/core.min.css';
+
+.whatsapp {
+  position: fixed;
+  right: 1rem;
+  display: flex;
+  bottom: 1rem;
+  z-index: 9999;
+  display: flex;
+  background: #075e54;
+  border-radius: 1rem;
+}
+
+.whatsapp:hover {
+  background: #25D366;
+}
+
+.whatsapp a {
+  display: flex;
+  align-items: center;
+  align-self: end;
+
+  color: #fff;
+  font-weight: 700;
+  padding: 0.3rem 0.8rem;
+
+  transition: background 0.2s;
+}
+
+.whatsapp img {
+  margin-left: 5px;
+}

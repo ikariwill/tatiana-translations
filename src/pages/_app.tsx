@@ -3,6 +3,7 @@ import "./global.css";
 import Script from "next/script";
 import { useState } from "react";
 
+import { CommonProvider } from "@context/CommonProvider";
 import { LocaleProvider } from "@context/LocaleProvider";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
@@ -14,7 +15,9 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <QueryClientProvider client={queryClient}>
       <LocaleProvider>
-        <Component {...pageProps} />
+        <CommonProvider>
+          <Component {...pageProps} />
+        </CommonProvider>
       </LocaleProvider>
 
       <Script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" />

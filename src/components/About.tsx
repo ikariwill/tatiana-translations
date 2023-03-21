@@ -1,5 +1,6 @@
 import { useContext } from "react";
 
+import { CommonContext } from "@context/CommonProvider";
 import { LocaleContext } from "@context/LocaleProvider";
 import { useAbout } from "@graphql/useAbout";
 import { useHero } from "@graphql/useHero";
@@ -9,6 +10,8 @@ import { useQuery, useQueryClient } from "@tanstack/react-query";
 /* eslint-disable @next/next/no-img-element */
 export default function About() {
   const { locale } = useContext(LocaleContext);
+  const { common } = useContext(CommonContext);
+
   const queryClient = useQueryClient();
   const about = useAbout();
 
@@ -42,7 +45,7 @@ export default function About() {
               href="#contact-lightbox"
               className="lightbox-link button text-uppercase bkg-theme color-white border-hover-grey-light color-hover-grey no-margin-bottom rounded"
             >
-              Contact
+              {common?.contact}
             </a>
           </p>
         </div>

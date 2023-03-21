@@ -1,9 +1,15 @@
+import { useContext } from "react";
+
+import { CommonContext } from "@context/CommonProvider";
+
 export default function Contact() {
+  const { common } = useContext(CommonContext);
+
   return (
     <div id="contact-lightbox" className="pt-20 pb-50 hide">
       <div className="row">
         <div className="column width-12 left">
-          <h2 className="mb-50 sc-t">Contact</h2>
+          <h2 className="mb-50 sc-t">{common?.contact}</h2>
           <div className="contact-form-container no-margin-bottom">
             <form
               className="contact-form"
@@ -16,7 +22,7 @@ export default function Contact() {
                     type="text"
                     name="fname"
                     className="form-fname form-element large"
-                    placeholder="Nome"
+                    placeholder={common?.name}
                     required
                   />
                 </div>
@@ -25,7 +31,7 @@ export default function Contact() {
                     type="email"
                     name="email"
                     className="form-email form-element large"
-                    placeholder="E-mail"
+                    placeholder={common?.email}
                     required
                   />
                 </div>
@@ -42,14 +48,15 @@ export default function Contact() {
                   <textarea
                     name="message"
                     className="form-message form-element large"
-                    placeholder="Mensagem"
+                    placeholder={common?.message}
                     required
                   ></textarea>
-                  <input
+                  <button
                     type="submit"
-                    value="Enviar"
                     className="form-submit button medium text-uppercase bkg-theme bkg-hover-charcoal color-white color-hover-white"
-                  />
+                  >
+                    {common?.send}
+                  </button>
                 </div>
               </div>
             </form>

@@ -6,7 +6,7 @@ import Header from "@components/Header";
 import Hero from "@components/Hero";
 import Services from "@components/Services";
 import Testimonials from "@components/Testimonials";
-import { LocaleProvider } from "@context/LocaleProvider";
+import { Whatsapp } from "@components/Whatsapp";
 
 export default function Page() {
   return (
@@ -43,6 +43,7 @@ export default function Page() {
             <Services />
             <Testimonials />
             <Contact />
+            <Whatsapp />
           </div>
         </div>
       </div>

@@ -1,0 +1,8 @@
+export type ICommon = {
+  contact: string;
+  name: string;
+  email: string;
+  message: string;
+  send: string;
+  contactMe: string;
+};

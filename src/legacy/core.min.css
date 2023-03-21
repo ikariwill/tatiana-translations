@@ -14255,7 +14255,7 @@ body.boxed .pagination-2 {
   width: 100%;
   background-color: #222;
   position: relative;
-  z-index: 1;
+  z-index: -1;
 }
 
 body.boxed .footer .footer-bottom,
@@ -19412,7 +19412,7 @@ textarea.required-field {
   width: 100%;
   background: #232323;
   color: #666;
-  z-index: 1;
+  z-index: -1;
 }
 
 .footer [class*="content-grid"] {
