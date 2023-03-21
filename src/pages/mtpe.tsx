@@ -26,7 +26,10 @@ export default function Mtpe() {
       </Head>
       <Header />
       <div className="content clearfix">
-        <FeaturedMedia title="MTPE" image="../images/3.jpg" />
+        <FeaturedMedia
+          title={data?.mtpe.title as string}
+          image="../images/3.jpg"
+        />
         <Translations />
       </div>
 
