@@ -5,12 +5,14 @@ import { LocaleContext } from "@context/LocaleProvider";
 import { IArea } from "@model/types/IArea";
 import { ICommon } from "@model/types/ICommon";
 import { IHeaderMenu } from "@model/types/IHeaderMenu";
+import { ILanguageList } from "@model/types/ILanguageList";
 import { hygraph_endpoint } from "@services/hygraph";
 
 export type ICommonData = {
   common: ICommon;
   area: IArea;
   headerMenus: IHeaderMenu[];
+  languageLists: ILanguageList[];
 };
 
 export function useCommon(): Promise<ICommonData> {
@@ -27,12 +29,20 @@ export function useCommon(): Promise<ICommonData> {
           message
           send
           contactMe
+          languages
+          document
+          translation
         }
         area(where: { translate: $translate }) {
           title
           content {
             html
           }
+        }
+        languageLists(where: { translate: $translate }) {
+          id
+          fromLanguage
+          toLanguage
         }
         headerMenus(where: { translate: $translate }) {
           id

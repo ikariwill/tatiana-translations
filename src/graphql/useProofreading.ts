@@ -5,18 +5,18 @@ import { LocaleContext } from "@context/LocaleProvider";
 import { IColumnTemplate } from "@model/types/IColumnTemplate";
 import { hygraph_endpoint } from "@services/hygraph";
 
-type ITranslationData = {
-  translation: IColumnTemplate;
+type IProofreadingData = {
+  proofreading: IColumnTemplate;
 };
 
-export function useTranslation(): Promise<ITranslationData> {
+export function useProofreading(): Promise<IProofreadingData> {
   const { locale } = useContext(LocaleContext);
 
   return request(
     hygraph_endpoint,
     gql`
-      query getTranslationContent($translate: String!) {
-        translation(where: { translate: $translate }) {
+      query getProofreadingContent($translate: String!) {
+        proofreading(where: { translate: $translate }) {
           title
           columnOne {
             html

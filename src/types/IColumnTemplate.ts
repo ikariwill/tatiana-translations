@@ -1,4 +1,4 @@
-export type ITranslation = {
+export type IColumnTemplate = {
   title: string;
   columnOne: {
     html: string;

@@ -8,14 +8,14 @@ import Header from "@components/Header";
 import Translations from "@components/Translations";
 import { LocaleContext } from "@context/LocaleProvider";
 import { useTranslation } from "@graphql/useTranslation";
-import { ITranslation } from "@model/types/ITranslation";
+import { IColumnTemplate } from "@model/types/IColumnTemplate";
 import { useQuery } from "@tanstack/react-query";
 
 export default function Translation() {
   const { locale } = useContext(LocaleContext);
   const translation = useTranslation();
 
-  const { data } = useQuery<{ translation: ITranslation }>({
+  const { data } = useQuery<{ translation: IColumnTemplate }>({
     queryKey: ["translation", locale],
     queryFn: () => translation,
     enabled: !!locale,
@@ -28,7 +28,10 @@ export default function Translation() {
       </Head>
       <Header />
       <div className="content clearfix">
-        <FeaturedMedia title="Translation" image="../images/1.jpg" />
+        <FeaturedMedia
+          title={data?.translation.title as string}
+          image="../images/1.jpg"
+        />
         <Translations />
       </div>
 

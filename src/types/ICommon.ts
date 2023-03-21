@@ -5,4 +5,7 @@ export type ICommon = {
   message: string;
   send: string;
   contactMe: string;
+  languages: string;
+  document: string;
+  translation: string;
 };
