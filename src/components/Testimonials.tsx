@@ -2,14 +2,17 @@ import "swiper/css/pagination";
 // Import Swiper styles
 import "swiper/css";
 
+import { useContext } from "react";
 import { Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 
+import { CommonContext } from "@context/CommonProvider";
 import { useQuery } from "@tanstack/react-query";
 
 import { useTestimonials } from "../graphql/useTestimonials";
 
 export default function Testimonials() {
+  const { data: commonData } = useContext(CommonContext);
   const testimonials = useTestimonials();
 
   const { data } = useQuery({
@@ -21,7 +24,7 @@ export default function Testimonials() {
     <div className="section-block ">
       <div className="row full-width collapse">
         <div className="column width-12 center">
-          <h3 className="mb-50 sc-t">Testimonials</h3>
+          <h3 className="mb-50 sc-t">{commonData?.common?.testimonialTitle}</h3>
           <div
             className="tm-slider-container testimonial-slider  tms-scalable-height"
             data-nav-dark=""
