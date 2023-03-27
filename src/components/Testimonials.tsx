@@ -36,7 +36,7 @@ export default function Testimonials() {
             <Swiper
               spaceBetween={20}
               centeredSlides
-              pagination
+              pagination={{ clickable: true }}
               autoplay
               modules={[Pagination]}
               className="mySwiper"
