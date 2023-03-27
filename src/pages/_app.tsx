@@ -3,6 +3,7 @@ import "./global.css";
 import Script from "next/script";
 import { useState } from "react";
 
+import { ChakraProvider } from "@chakra-ui/react";
 import Contact from "@components/Contact";
 import { Whatsapp } from "@components/Whatsapp";
 import { CommonProvider } from "@context/CommonProvider";
@@ -18,9 +19,10 @@ export default function App({ Component, pageProps }: AppProps) {
     <QueryClientProvider client={queryClient}>
       <LocaleProvider>
         <CommonProvider>
-          <Component {...pageProps} />
-          <Contact />
-          <Whatsapp />
+          <ChakraProvider>
+            <Component {...pageProps} />
+            <Whatsapp />
+          </ChakraProvider>
         </CommonProvider>
       </LocaleProvider>
 

@@ -1,5 +1,7 @@
 /* eslint-disable @next/next/no-html-link-for-pages */
 
+import Link from "next/link";
+
 export default function Footer() {
   return (
     <footer className="footer">
@@ -9,8 +11,8 @@ export default function Footer() {
             <div className="widget">
               <h4 className="widget-title">Tatiana Hernandez - 2023</h4>
               <p>
-                <a href="/impressum">Impressum</a> |
-                <a href="/data_privacy"> Data Privacy</a>
+                <Link href="/impressum">Impressum</Link> |
+                <Link href="/data_privacy"> Data Privacy</Link>
               </p>
             </div>
           </div>

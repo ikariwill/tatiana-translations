@@ -1,15 +1,28 @@
 import Link from "next/link";
 import { useContext } from "react";
 
+import {
+  Button,
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  ModalOverlay,
+  useDisclosure,
+} from "@chakra-ui/react";
 import { CommonContext } from "@context/CommonProvider";
 import { LocaleContext } from "@context/LocaleProvider";
 
+import Contact from "./Contact";
 /* eslint-disable @next/next/no-html-link-for-pages */
 import { Languages } from "./Languages";
 
 /* eslint-disable @next/next/no-img-element */
 export default function Header() {
   const { data } = useContext(CommonContext);
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
     <header
@@ -36,14 +49,10 @@ export default function Header() {
               <ul>
                 <li>
                   <div className="v-align-middle">
-                    <a
-                      data-content="inline"
-                      data-toolbar=""
-                      data-modal-mode
-                      data-modal-width="500"
-                      href="#contact-lightbox"
-                      className="lightbox-link button small pull-right no-margin-bottom icon-mail"
-                    ></a>
+                    <button
+                      onClick={onOpen}
+                      className="button small pull-right no-margin-bottom icon-mail"
+                    ></button>
                   </div>
                 </li>
                 <li className="aux-navigation hide">
@@ -83,6 +92,16 @@ export default function Header() {
           </div>
         </div>
       </div>
+
+      <Modal isCentered isOpen={isOpen} onClose={onClose} size={"xl"}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalCloseButton />
+          <ModalBody>
+            <Contact />
+          </ModalBody>
+        </ModalContent>
+      </Modal>
     </header>
   );
 }
